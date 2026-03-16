@@ -52,6 +52,41 @@ void mystrtok(char s[]) {
 
     }
 }
+void KapetanFlint() {
+    int k;
+    scanf("%d", &k);
+
+    char s[100];
+
+    int y;
+    int x = y = 0;
+
+    for (int i = 0; i < k; i++) {
+        gets(s);
+        printf("%s\n", s);
+        char* razmak = strchr(s, ' ');
+        char smjer[10];
+        strncpy(smjer, s, razmak - s);
+        smjer[razmak - s] = '\0';
+
+        char d_str[10];
+        strcpy(d_str, razmak+1);
+        int d;
+        sscanf(d_str, "%d", &d);
+
+        if (strcmp(smjer, "North") == 0) {
+            y += d;
+        } else if (strcmp(smjer, "South") == 0) {
+            y -= d;
+        } else if (strcmp(smjer, "East") == 0) {
+            x += d;
+        } else if (strcmp(smjer, "West") == 0) {
+            x -= d;
+        } else {
+            printf("Greska!\n");
+        }
+    }
+}
 
 int main() {
 
@@ -83,6 +118,12 @@ int main() {
     int y;
     sscanf(s4, "%d", &y);
     printf("%d\n", y);
+
+    int z = 123;
+    char s5[10];
+    sprintf(s5, "%d", z);
+    printf("%s\n", s5);
+    KapetanFlint();
 
     VRATI 0;
 }

@@ -1,0 +1,1 @@
+    lokalMaksimum(m,n,a);

@@ -54,7 +54,7 @@ void mystrtok(char s[]) {
 }
 void KapetanFlint() {
     int k;
-    scanf("%d", &k);
+    scanf("%d\n", &k);
 
     char s[100];
 

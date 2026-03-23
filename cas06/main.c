@@ -52,6 +52,9 @@ void zad2() {
 // koji učitava takav string, a zatim u svakoj riječi iz unijete rečenice okreće redosljed samoglasnika. Riječi u
 // rečenici su razdvojene prazninama.
 
+int jeSamoglasnik(char c) {
+    return c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u';
+}
 void zad4() {
     char recenica[100];
     char izlaz[100] = ""; //inicijalizujemo prazan string
@@ -60,11 +63,27 @@ void zad4() {
     char* rijec = strtok(recenica, " ");
     while (rijec != NULL) {
 
+        int l = 0;
+        int r = strlen(rijec) - 1;
+        while (l < r) {
+            if (jeSamoglasnik(rijec[l]) && jeSamoglasnik(rijec[r])) {
+                char c = rijec[l];
+                rijec[l] = rijec[r];
+                rijec[r] = c;
+                l++;
+                r--;
+            }
+            if (!jeSamoglasnik(rijec[l])) l++;
+            if (!jeSamoglasnik(rijec[r])) r--;
+        }
+
         strcat(izlaz, rijec);
         strcat(izlaz, " ");
         
         rijec = strtok(NULL, " ");
     }
+
+    printf("%s\n", izlaz);
 
 }
 
